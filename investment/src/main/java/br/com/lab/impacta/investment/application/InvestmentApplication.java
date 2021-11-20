@@ -7,3 +7,4 @@ public interface InvestmentApplication {
 
     InvestmentResponse invest(Long accountId, InvestmentRequest investmentRequest);
 }
+

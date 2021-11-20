@@ -21,3 +21,4 @@ public class Product {
 
     private boolean privateInvestment;
 }
+

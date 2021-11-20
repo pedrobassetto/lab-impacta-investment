@@ -45,8 +45,8 @@ public class ControllerExceptionHandler {
         return new ResponseEntity<ErrorMessageResponse>(message, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(InvestmentAccountNotDebitException.class)
-    public ResponseEntity<ErrorMessageResponse> errorWithoutBalanceForPrivate(InvestmentAccountNotDebitException ex) {
+    @ExceptionHandler(InvestmentAccountIsNotDebitException.class)
+    public ResponseEntity<ErrorMessageResponse> errorWithoutBalanceForPrivate(InvestmentAccountIsNotDebitException ex) {
         ErrorMessageResponse message = new ErrorMessageResponse(
                 HttpStatus.BAD_REQUEST.value(),
                 new Date(),

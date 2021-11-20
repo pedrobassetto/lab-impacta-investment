@@ -1,15 +1,16 @@
 package br.com.lab.impacta.investment.handler.exception;
 
-public class InvestmentAccountWithoutBalanceException extends RuntimeException {
+public class InvestmentAccountIsNotDebitException extends RuntimeException {
+
     private String description;
 
     public String getDescription(){
         return description;
     }
 
-    public InvestmentAccountWithoutBalanceException(){}
+    public InvestmentAccountIsNotDebitException(){}
 
-    public InvestmentAccountWithoutBalanceException(String message, String description) {
+    public InvestmentAccountIsNotDebitException(String message, String description) {
         super(message);
 
         this.description = description;

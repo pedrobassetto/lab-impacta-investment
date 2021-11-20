@@ -1,6 +1,6 @@
 package br.com.lab.impacta.investment.service.impl;
 
-import br.com.lab.impacta.investment.handler.exception.InvestmentAccountNotDebitException;
+import br.com.lab.impacta.investment.handler.exception.InvestmentAccountIsNotDebitException;
 import br.com.lab.impacta.investment.handler.exception.InvestmentAccountWithoutBalanceException;
 import br.com.lab.impacta.investment.handler.exception.InvestmentAccountWithoutBalanceForProductPrivateException;
 import br.com.lab.impacta.investment.handler.exception.InvestmentProductDontExistException;
@@ -71,12 +71,12 @@ public class InvestmentServiceImpl implements InvestmentService {
 
         if (!investment.verifyProductPrivateOrDefaultForInvestment(accountBalanceVO.getBalance(), product.get()))
             throw new InvestmentAccountWithoutBalanceForProductPrivateException(messageExceptionAccountWithoutBalanceForProductPrivate,
-                descriptionExceptionAccountWithoutBalanceForProductPrivate);
+                    descriptionExceptionAccountWithoutBalanceForProductPrivate);
 
         boolean isDebited = accountFacade.debitAccount(accountId, valueInvestment);
 
         if (!isDebited)
-            throw new InvestmentAccountNotDebitException(messageExceptionAccountIsNotDebited,
+            throw new InvestmentAccountIsNotDebitException(messageExceptionAccountIsNotDebited,
                     descriptionExceptionAccountIsNotDebited);
 
         investmentRepository.save(investment);
